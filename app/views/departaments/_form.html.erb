@@ -1,0 +1,35 @@
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <div class="container">
+            <Section>
+              <%= form_with(model: departament) do |form| %>
+                <% if departament.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(departament.errors.count, "error") %> prohibited this departament from being saved:</h2>
+                    <ul>
+                      <% departament.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <div class="form-group">
+                  <%= form.label :Nombre %>
+                  <%= form.text_field :name %>
+                </div>
+                <div class="form-group">
+                  <%= form.label :Encargado %>
+                  <%= form.text_field :manager %>
+                </div>
+                <div class="form-group">
+                  <%= form.label :Teléfono %>
+                  <%= form.text_field :telephone %>
+                </div>
+                <div class="actions">
+                  <%= form.submit  %>
+                </div>
+              <% end %>
+            </section>

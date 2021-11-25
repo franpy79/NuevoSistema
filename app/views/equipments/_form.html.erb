@@ -1,0 +1,101 @@
+
+
+<%= render 'shared/errors' , obj: @equipment%>
+
+
+<div class="row">
+	<div class="col-xs-12">
+	<%= form_for(@equipment, :html => {class:'form-horizontal', role:'form'}) do |f|%>
+	<div class="form-group">
+		<div class="col-sm-2 control-label">
+			 <%= form.label :labelled %>
+		</div>
+		<div class="col-sm-10">
+			 <%= form.text_field :labelled, class:'form-control', placeholder:'Rotulado de equipo' , autofocus:true %>
+		</div>
+	</div>
+
+  <div class="form-group">
+		<div class="col-sm-2 control-label">
+			 <%= form.label :motherboard %>
+		</div>
+		<div class="col-sm-10">
+			 <%= form.text_field :motherboard, class:'form-control', placeholder:'--' , autofocus:true %>
+		</div>
+	</div>
+
+  <div class="form-group">
+		<div class="col-sm-2 control-label">
+			 <%= form.label :os%>
+		</div>
+		<div class="col-sm-10">
+			 <%= form.text_field :os, class:'form-control', placeholder:'--' , autofocus:true %>
+		</div>
+	</div>
+
+  <div class="form-group">
+		<div class="col-sm-2 control-label">
+			 <%= form.label :type_equipment %>
+		</div>
+		<div class="col-sm-10">
+			 <%= form.text_field :type_equipment, class:'form-control', placeholder:'--' , autofocus:true %>
+		</div>
+	</div>
+
+  <div class="form-group">
+		<div class="col-sm-2 control-label">
+			 <%= form.label :ram %>
+		</div>
+		<div class="col-sm-10">
+			 <%= form.text_field :ram, class:'form-control', placeholder:'--' , autofocus:true %>
+		</div>
+	</div>
+
+  <div class="form-group">
+		<div class="col-sm-2 control-label">
+			 <%= form.label :disk %>
+		</div>
+		<div class="col-sm-10">
+			 <%= form.text_field :disk, class:'form-control', placeholder:'--' , autofocus:true %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div  class="col-sm-2 control-label">
+			<%= f.label :monitor %>
+		</div>
+		<div class="col-sm-10">
+			<%= form.text_field :monitor, class:'form-control', placeholder:'--' , autofocus:true %>
+		</div>
+	</div>
+  
+	<div class="form-group">
+		<div  class="col-sm-2 control-label">
+			<%= f.label :processor%>
+		</div>
+		<div class="col-sm-10">
+			<%= form.text_field :processor class:'form-control', placeholder:'--' , autofocus:true %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="row">
+			<div class="col-sm-offset-2 col-sm-8">
+				<%= f.collection_check_boxes :departament_ids, Departament.all , :id, :name do |cb| %>
+					<% cb.label(class: "checkbox-inline input_checkbox"){cb.check_box(class: "checkbox") + cb.text} %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+		<%= f.submit  class:'btn btn-primary' %>
+		</div>
+	</div>
+		
+	<% end %>
+	<div class="col-xs-5 col-xs-offset-5">
+	[ <%= link_to "Cancel request and back to article lists", articles_path %> ]
+	</div>
+	</div>
+</div>

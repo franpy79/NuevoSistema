@@ -1,0 +1,13 @@
+<h1 ><%= "Employee: " + @employee.name %></h1>
+<div >
+	<% if logged_in? and current_user.admin? %>
+		<div class="row">
+			<span class="badge"><%= link_to "Edit employee name" , edit_employee_path(@employee)%></span>
+		</div>
+	<% end %>
+	<%= will_paginate @employee_equipment %>
+</div>
+<%= render 'equipments/equipment' ,  :obj => @employee_equipments %>
+<div >
+	<%= will_paginate @employee_equipments%>
+</div>

@@ -1,0 +1,12 @@
+<h2>Editar Departamento</h2>
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <div class="container">
+            <section>
+              <%= render 'form', departament: @departament %>
+              <%= link_to 'Ver', @departament %> |
+              <%= link_to 'Atrás', departaments_path %>
+            </section>

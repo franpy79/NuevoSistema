@@ -1,0 +1,31 @@
+<h2 >Rotulado:<%= @equipment.labelled %></h2>
+<div class="well col-xs-8 col-xs-offset-2">
+	<% if @equipment.user%>
+	<ul class="listing">
+		<div class="row center">
+			<div class="col-md-4 col-md-offset-4">
+			<li>Creado por:</li>
+				<li><%= link_to gravatar_for(@equipment.user), user_path(@equipment.user)%></li>
+				<li class="equipment-rotulado"> 
+					<%= link_to @equipment.user.username, user_path(@equipment.user)%>
+				</li>
+				<li><small><%= pluralize(@equipment.user.equipment.count, "equipment") if @equipment.user.equipment%></small></li>
+			</div>
+		</div>
+	</ul>
+	<% end %>
+	<h4 class="center motherboard"><strong>Motherboard:</strong></h4>
+	<hr>
+	<%= simple_format(@equipment.motherboard)%>
+	<% if @equipment.departaments.any? %>
+		<p>>Departamentos: <%= render @equipment.departaments%></p>
+	<% end %>
+	<div class="equipment-action">
+	<% if logged_in? && (current_user == @equipment.user || current_user.admin?) %>
+		<%= link_to "Editar this equipment" , edit_equipment_path(@equipment), class: "btn btn-xs btn-primary"%>
+		<%= link_to "Borrar this equipment" , equipment_path(@equipment), method: :delete,
+		 class: "btn btn-xs btn-danger",
+		 	data: {confirm: "Are you sure to delete this equipment?"}%>
+		 	<% end %>
+		 	<%= link_to "View all equipments", equipment_path, class: "btn btn-success btn-xs" %>
+	</div>
