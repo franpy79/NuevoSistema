@@ -3,59 +3,67 @@ class EmployeesController < ApplicationController
 
   # GET /employees or /employees.json
   def index
-    @employees = Employee.paginate(page: params[:page], per_page: 5)
+    @employees = Employee.all
   end
-    
 
   # GET /employees/1 or /employees/1.json
   def show
-    @employees = Employee.find(params[:id])
-		@employee_equipments = @employee.equipments.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /employees/new
   def new
-    @employee = Employee.new 
+    @employee = Employee.new
   end
 
   # GET /employees/1/edit
   def edit
-    @employee = Employee.find(params[:id])
   end
 
   # POST /employees or /employees.json
   def create
     @employee = Employee.new(employee_params)
-		if @category.save
-			flash[:success] = "employee was created successfully"
-			redirect_to employees_path
-		else
-			render 'new'
-		end
+
+    respond_to do |format|
+      if @employee.save
+        format.html { redirect_to @employee, notice: "Funcionario agregado con éxito." }
+        format.json { render :show, status: :created, location: @employee }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @employee.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /employees/1 or /employees/1.json
   def update
-    @employee = Employee.find(params[:id])
-		if @employee.update(employee_params)
-			flash[:success] = "employee name was successfully updated"
-			redirect_to employee_path(@employee)
-		else
-			render 'edit'
-		end
+    respond_to do |format|
+      if @employee.update(employee_params)
+        format.html { redirect_to @employee, notice: "Funcionario actualizado correctamente." }
+        format.json { render :show, status: :ok, location: @employee }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @employee.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /employees/1 or /employees/1.json
-   end
+  def destroy
+    @employee.destroy
+    respond_to do |format|
+      format.html { redirect_to employees_url, notice: "Funcionario eliminado con éxito." }
+      format.json { head :no_content }
+    end
+  end
 
   private
-  def employee_params
-		params.require(:employee).permit(:name)
-	end
-	def require_admin
-		if !logged_in? || (logged_in? and !current_user.admin?)
-			flash[:danger] = "only admin can use that action"
-			redirect_to employees_path
-		end
-	end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_employee
+      @employee = Employee.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def employee_params
+      params.require(:employee).permit(:name, :email)
+    end
 end

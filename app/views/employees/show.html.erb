@@ -1,13 +1,24 @@
-<h1 ><%= "Employee: " + @employee.name %></h1>
-<div >
-	<% if logged_in? and current_user.admin? %>
-		<div class="row">
-			<span class="badge"><%= link_to "Edit employee name" , edit_employee_path(@employee)%></span>
-		</div>
-	<% end %>
-	<%= will_paginate @employee_equipment %>
-</div>
-<%= render 'equipments/equipment' ,  :obj => @employee_equipments %>
-<div >
-	<%= will_paginate @employee_equipments%>
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Lista de Funcionarios</h1>
+        </div>
+        <section>
+          <p id="notice"><%= notice %></p>
+          <p>
+            <strong>Name:</strong>
+            <%= @employee.name %>
+          </p>
+          <p>
+            <strong>Email:</strong>
+            <%= @employee.email %>
+          </p>
+          <%= link_to 'Edit', edit_employee_path(@employee) %> |
+          <%= link_to 'Back', employees_path %>
+        </section>
+      </div>
+    </div>
+  </div>
 </div>

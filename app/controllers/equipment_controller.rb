@@ -1,63 +1,69 @@
 class EquipmentController < ApplicationController
-  
-	before_action :set_equipments,only: [:edit, :update, :show, :destroy]
-	before_action :require_user,except: [:index, :show]
-	before_action :require_same_user, only: [:edit, :update, :destroy] 
+  before_action :set_equipment, only: %i[ show edit update destroy ]
 
-	def index
-		@equipments = Equipment.paginate(page: params[:page], per_page: 5)
-	end
+  # GET /equipment or /equipment.json
+  def index
+    @equipment = Equipment.all
+  end
 
-	def new
-    @equipment= Equipment.new
-	end
+  # GET /equipment/1 or /equipment/1.json
+  def show
+  end
 
-	def create
-		#render plain: params[:equipment].inspect
-		@equipment = Equipment.new(equipment_params)
-		@equipment.user = current_user
-		@equipment.save
-		if @equipment.save
-			#something
-			redirect_to equipment_path(@equipment) #this code used to show after submission
-			flash[:success] = "Equipo was successfully created"
-		else
-			render 'new'
-		end
-		
-	end
+  # GET /equipment/new
+  def new
+    @equipment = Equipment.new
+  end
 
-	def show
-		@equipment= Equipment.find(params[:id])
-	end
+  # GET /equipment/1/edit
+  def edit
+  end
 
-	def edit
-		@equipment= Equipment.find(params[:id])
-	end
+  # POST /equipment or /equipment.json
+  def create
+    @equipment = Equipment.new(equipment_params)
 
-	def update
-		@equipment= Equipment.find(params[:id])
-		if @equipment.update(equipment_params)
-			redirect_to equipment_path(@equipment)
-			flash[:success] = "Equipo successfully updated"
-		else
-			render 'edit'
-		end
-	end
-	
-	private
-	def set_equipments
-		@equipment= Equipment.find(params[:id])
-	end
-	def equipment_params
-		params.require(:equipment).permit(:labelled, :motherboard, departament_ids: [])
-		
-	end
-	def require_same_user
-		if current_user != @equipo.user and !current_user.admin?
-		flash[:danger] = "you can only edit are delete your own equipo"
-		redirect_to root_path 
-		end
-	end
+    respond_to do |format|
+      if @equipment.save
+        format.html { redirect_to @equipment, notice: "Equipo agregado con éxito." }
+        format.json { render :show, status: :created, location: @equipment }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @equipment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
+  # PATCH/PUT /equipment/1 or /equipment/1.json
+  def update
+    respond_to do |format|
+      if @equipment.update(equipment_params)
+        format.html { redirect_to @equipment, notice: "Equipo actualizado correctamente." }
+        format.json { render :show, status: :ok, location: @equipment }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @equipment.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /equipment/1 or /equipment/1.json
+  def destroy
+    @equipment.destroy
+    respond_to do |format|
+      format.html { redirect_to equipment_index_url, notice: "Equipo eliminado con éxito." }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_equipment
+      @equipment = Equipment.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def equipment_params
+      params.require(:equipment).permit(:labelled, :motherboard, :so, :type_equipment, :Ram_memory, :hard_disk, :processor, :print_machine)
+    end
 end

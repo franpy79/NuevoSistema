@@ -1,6 +1,9 @@
-<h2>Editar funcionario</h2>
-
-<%= render 'form', employee: @employee %>
-
-<%= link_to 'Ver', @employee %> |
-<%= link_to 'Atrás', employees_path %>
+<section>
+  <div class="content-wrapper">
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <h2 class="m-0 text-dark">Editar Funcionario</h2>
+          <%= render 'form', employee: @employee %>
+          <%= link_to 'Atras', employees_path, class: "btn btn-primary btn-sm"   %>
+        </section>

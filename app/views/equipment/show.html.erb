@@ -1,0 +1,48 @@
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Lista de Equipos</h1>
+        </div>
+        <section>
+          <p id="notice"><%= notice %></p>
+          <p>
+            <strong>Rotulado:</strong>
+            <%= @equipment.labelled %>
+          </p>
+          <p>
+            <strong>Motherboard:</strong>
+            <%= @equipment.motherboard %>
+          </p>
+          <p>
+            <strong>Sistema:</strong>
+            <%= @equipment.so %>
+          </p>
+          <p>
+            <strong>Tipo Equipo:</strong>
+            <%= @equipment.type_equipment %>
+          </p>
+          <p>
+            <strong>Memoria Ram :</strong>
+            <%= @equipment.Ram_memory %>
+          </p>
+          <p>
+            <strong>Disco Duro:</strong>
+            <%= @equipment.hard_disk %>
+          </p>
+          <p>
+            <strong>Procesador:</strong>
+            <%= @equipment.processor %>
+          </p>
+          <p>
+            <strong>Impresora:</strong>
+            <%= @equipment.print_machine %>
+          </p>
+          <%= link_to 'Editar', edit_equipment_path(@equipment) %> |
+          <%= link_to 'Atras', equipment_index_path %>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_131851) do
+ActiveRecord::Schema.define(version: 2021_11_26_160907) do
 
   create_table "departaments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -27,15 +27,15 @@ ActiveRecord::Schema.define(version: 2021_11_18_131851) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "equipments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "equipment", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "labelled"
     t.string "motherboard"
-    t.string "os"
+    t.string "so"
     t.string "type_equipment"
-    t.string "ram"
-    t.string "disk"
-    t.string "monitor"
+    t.string "Ram_memory"
+    t.string "hard_disk"
     t.string "processor"
+    t.string "print_machine"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

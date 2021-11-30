@@ -8,7 +8,7 @@
               <%= form_with(model: departament) do |form| %>
                 <% if departament.errors.any? %>
                   <div id="error_explanation">
-                    <h2><%= pluralize(departament.errors.count, "error") %> prohibited this departament from being saved:</h2>
+                    <h2><%= pluralize(departament.errors.count, "error") %> prohibió que este departamento se guarde:</h2>
                     <ul>
                       <% departament.errors.each do |error| %>
                         <li><%= error.full_message %></li>
@@ -16,20 +16,30 @@
                     </ul>
                   </div>
                 <% end %>
-                <div class="form-group">
-                  <%= form.label :Nombre %>
-                  <%= form.text_field :name %>
-                </div>
-                <div class="form-group">
-                  <%= form.label :Encargado %>
-                  <%= form.text_field :manager %>
-                </div>
-                <div class="form-group">
-                  <%= form.label :Teléfono %>
-                  <%= form.text_field :telephone %>
-                </div>
-                <div class="actions">
-                  <%= form.submit  %>
-                </div>
-              <% end %>
-            </section>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="card-title"> Agregar </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="mb-3">
+                            <%= form.label :Nombre, { class: "form-label"} %>
+                            <%= form.text_field :name, { class: "form-control", placeholder: "agregue nombres completos..." }  %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :Encargado, { class: "form-label"}  %>
+                            <%= form.text_field :manager, { class: "form-control", placeholder: "agregar Jefe Departamento...." }  %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :Teléfono, { class: "form-label"}  %>
+                            <%= form.text_field :telephone, { class: "form-control", placeholder: "ej.0991.222-333" }  %>
+                          </div>
+                          <div class="actions">
+                            <%= form.submit value="Guardar", class: "btn btn-success btn" %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </section>

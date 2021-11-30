@@ -1,4 +1,5 @@
 class CreateDepartaments < ActiveRecord::Migration[6.1]
+
   def change
     create_table :departaments do |t|
       t.string :name
@@ -9,3 +10,4 @@ class CreateDepartaments < ActiveRecord::Migration[6.1]
     end
   end
 end
+ 
