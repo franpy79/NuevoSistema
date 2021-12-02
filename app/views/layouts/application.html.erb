@@ -8,11 +8,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
-      <%= render "layouts/admin_nav" %>
-      <%= render "layouts/admin_side_nav" %>
-      <%= yield %>
-      <%= render "layouts/admin_footer" %>
-    </body>
-  </html>
+  <body >
+    <%= yield %>
+    <br>
+    <br>
+    <br>
+    <%= render "layouts/admin_footer" %>
+  </body>
+</html>

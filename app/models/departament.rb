@@ -1,5 +1,3 @@
 class Departament < ApplicationRecord
-  
- 
-    
+     
 end
