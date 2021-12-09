@@ -1,3 +1,5 @@
+      <%= render "layouts/admin_nav" %>
+<%= render "layouts/admin_side_nav" %>
 <section>
   <div class="content-wrapper">
     <div class="content-header">
@@ -5,8 +7,8 @@
         <div class="row mb-2">
           <h2 class="m-0 text-dark">LISTADO</h2>
           <%= render 'form', listado: @listado %>
-          <%= link_to 'Back', listados_path %>
-         </div>
+          <%= link_to 'Volver', listados_path %>
+        </div>
       </div>
     </div>
   </div>

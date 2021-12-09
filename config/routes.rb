@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
- 
+  root to: 'home#index'
 
-  
-  resources :listados
+      resources :home
+      resources :listados
       resources :printers
       resources :equipment
       resources :admin
