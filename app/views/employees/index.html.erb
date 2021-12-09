@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">FUNCIONARIOS  <%= link_to 'Agregar ', new_employee_path, class: "btn btn-secondary btn"  %></h1>
+        </div>
+        <p id="notice"><%= notice %></p>
+        <section>
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @employees.each do |employee| %>
+                      <tr>
+                        <td><%= employee.name %></td>
+                        <td><%= employee.email %></td>
+                        <td><%= link_to 'Ver', employee, class: "btn btn-outline-success btn-sm"  %>
+                          <%= link_to 'Editar', edit_employee_path(employee), class: "btn btn-outline-primary btn-sm" %>
+                          <%= link_to 'Eliminar', employee, method: :delete, data: { confirm: 'Estas seguro?..' }, class: "btn btn-outline-danger btn-sm" %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </section>

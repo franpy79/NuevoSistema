@@ -1,0 +1,37 @@
+<%= form_with(model: listado) do |form| %>
+  <% if listado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(listado.errors.count, "error") %> prohibited this listado from being saved:</h2>
+
+      <ul>
+        <% listado.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :departament_id %>
+    <%= form.text_field :departament_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employee %>
+    <%= form.text_field :employee %>
+  </div>
+
+  <div class="field">
+    <%= form.label :equipment_id %>
+    <%= form.text_field :equipment_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :printer_id %>
+    <%= form.text_field :printer_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

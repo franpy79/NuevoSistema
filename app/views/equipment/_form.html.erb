@@ -1,0 +1,65 @@
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <div class="container">
+            <Section>
+              <%= form_with(model: equipment) do |form| %>
+                <% if equipment.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+                    <ul>
+                      <% equipment.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="card-title">Agregar</div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="mb-3">
+                            <%= form.label :Rotulado, { class: "form-label"}  %>
+                            <%= form.text_field :labelled, { class: "form-control", placeholder: "ej.100-100-100" } %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :Motherboard, { class: "form-label"}  %>
+                            <%= form.text_field :motherboard, { class: "form-control", placeholder: "ej.Asus A7N8X-VM" } %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :Sistema, { class: "form-label"}  %>
+                            <%= form.text_field :so, { class: "form-control", placeholder: "ej.Windows7 home" } %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :Tipo_Equipo, { class: "form-label"}  %>
+                            <%= form.text_field :type_equipment, { class: "form-control", placeholder: "ej.Notebook" } %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :Memoria_Ram,{ class: "form-label"}  %>
+                            <%= form.text_field :Ram_memory, { class: "form-control", placeholder: "ej.4 Gigabyte" } %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :Disco_Duro, { class: "form-label"}  %>
+                            <%= form.text_field :hard_disk, { class: "form-control", placeholder: "ej.Seagate, 500 gb" } %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :Procesador, { class: "form-label"}  %>
+                            <%= form.text_field :processor, { class: "form-control", placeholder: "ej.Intel Core i3/AMD" } %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :Impresora, { class: "form-label"}  %>
+                            <%= form.text_field :print_machine, { class: "form-control", placeholder: "ej.HP LaserJet P1102" } %>
+                          </div>
+                          <div class="actions">
+                            <%= form.submit value="Guardar", class: "btn btn-success btn" %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </section>

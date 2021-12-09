@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Departament:</strong>
+  <%= @listado.departament_id %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @listado.employee %>
+</p>
+
+<p>
+  <strong>Equipment:</strong>
+  <%= @listado.equipment_id %>
+</p>
+
+<p>
+  <strong>Printer:</strong>
+  <%= @listado.printer_id %>
+</p>
+
+<%= link_to 'Edit', edit_listado_path(@listado) %> |
+<%= link_to 'Back', listados_path %>

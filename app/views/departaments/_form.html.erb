@@ -1,0 +1,45 @@
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <div class="container">
+            <Section>
+              <%= form_with(model: departament) do |form| %>
+                <% if departament.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(departament.errors.count, "error") %> prohibió que este departamento se guarde:</h2>
+                    <ul>
+                      <% departament.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="card-title"> Agregar </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="mb-3">
+                            <%= form.label :Nombre, { class: "form-label"} %>
+                            <%= form.text_field :name, { class: "form-control", placeholder: "agregue nombres completos..." }  %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :Encargado, { class: "form-label"}  %>
+                            <%= form.text_field :manager, { class: "form-control", placeholder: "agregar Jefe Departamento...." }  %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :Teléfono, { class: "form-label"}  %>
+                            <%= form.text_field :telephone, { class: "form-control", placeholder: "ej.0991.222-333" }  %>
+                          </div>
+                          <div class="actions">
+                            <%= form.submit value="Guardar", class: "btn btn-success btn" %>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </section>
