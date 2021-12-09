@@ -1,24 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Departament:</strong>
-  <%= @listado.departament_id %>
-</p>
-
-<p>
-  <strong>Employee:</strong>
-  <%= @listado.employee %>
-</p>
-
-<p>
-  <strong>Equipment:</strong>
-  <%= @listado.equipment_id %>
-</p>
-
-<p>
-  <strong>Printer:</strong>
-  <%= @listado.printer_id %>
-</p>
-
-<%= link_to 'Edit', edit_listado_path(@listado) %> |
-<%= link_to 'Back', listados_path %>
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Lista de Departamentos</h1>
+        </div>
+        <section>
+          <p id="notice"><%= notice %></p>
+          <p>
+            <strong>Departamento:</strong>
+            <%= @listado.departament_name%>
+          </p>
+          <p>
+            <strong>Funcionario:</strong>
+            <%= @listado.employee_name %>
+          </p>
+          <p>
+            <strong>Equipo:</strong>
+            <%= @listado.equipment_labelled%>
+          </p>
+          <p>
+            <strong>Impresora:</strong>
+            <%= @listado.printer_labelled%>
+          </p>
+          <%= link_to 'Editar', edit_listado_path(@listado) %> |
+          <%= link_to 'Atras', listados_path %>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

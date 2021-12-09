@@ -5,19 +5,18 @@
         <div class="col-sm-6">
           <div class="container">
             <Section>
-<%= form_with(model: printer) do |form| %>
-  <% if printer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(printer.errors.count, "error") %> prohibited this printer from being saved:</h2>
-
-      <ul>
-        <% printer.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="row">
+              <%= form_with(model: printer) do |form| %>
+                <% if printer.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(printer.errors.count, "error") %> prohibited this printer from being saved:</h2>
+                    <ul>
+                      <% printer.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <div class="row">
                   <div class="col-md-12">
                     <div class="card">
                       <div class="card-header">
@@ -26,24 +25,24 @@
                       <div class="card">
                         <div class="card-body">
                           <div class="mb-3">
-    <%= form.label :labelled, { class: "form-label"} %>
-    <%= form.text_field :labelled, { class: "form-control", placeholder: "agregue ..." }  %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :mark, { class: "form-label"}  %>
-    <%= form.text_field :mark, { class: "form-control", placeholder: "agregue ..." }  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :conect, { class: "form-label"}  %>
-    <%= form.text_field :conect, { class: "form-control", placeholder: "agregue ..." }  %>
-  </div>
-
-  <div class="actions">
-  <%= form.submit value="Guardar", class: "btn btn-success btn" %>
-  </div>
-  </div>
-  </div>
-<% end %>
-</section>
+                            <%= form.label :labelled, { class: "form-label"} %>
+                            <%= form.text_field :labelled, { class: "form-control", placeholder: "agregue ..." }  %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :mark, { class: "form-label"}  %>
+                            <%= form.text_field :mark, { class: "form-control", placeholder: "agregue ..." }  %>
+                          </div>
+                          <div class="field">
+                            <%= form.label :conect, { class: "form-label"}  %>
+                            <%= form.text_field :conect, { class: "form-control", placeholder: "agregue ..." }  %>
+                          </div>
+                          <div class="actions">
+                            <%= form.submit value="Guardar", class: "btn btn-success btn" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </section>

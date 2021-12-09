@@ -1,5 +1,13 @@
-<h1>New Listado</h1>
-
-<%= render 'form', listado: @listado %>
-
-<%= link_to 'Back', listados_path %>
+<section>
+  <div class="content-wrapper">
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <h2 class="m-0 text-dark">LISTADO</h2>
+          <%= render 'form', listado: @listado %>
+          <%= link_to 'Back', listados_path %>
+         </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,37 +1,52 @@
-<%= form_with(model: listado) do |form| %>
-  <% if listado.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(listado.errors.count, "error") %> prohibited this listado from being saved:</h2>
-
-      <ul>
-        <% listado.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :departament_id %>
-    <%= form.text_field :departament_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :employee %>
-    <%= form.text_field :employee %>
-  </div>
-
-  <div class="field">
-    <%= form.label :equipment_id %>
-    <%= form.text_field :equipment_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :printer_id %>
-    <%= form.text_field :printer_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <div class="container">
+            <Section>
+              <%= form_with(model: listado) do |form| %>
+                <% if listado.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(listado.errors.count, "error") %> prohibited this listado from being saved:</h2>
+                    <ul>
+                      <% listado.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="card-title"> Agregar </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="mb-3">
+                            <%= form.label :departament_id, { class: "form-label"} %>
+                            <%= form.text_field :departament_id , { class: "form-control", placeholder: "agregue nombres completos..." }  %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :employee, { class: "form-label"}  %>
+                            <%= form.text_field :employee, { class: "form-control", placeholder: "agregue nombres completos..." }  %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :equipment_id, { class: "form-label"} %>
+                            <%= form.text_field :equipment_id, { class: "form-control", placeholder: "agregue nombres completos..." }  %>
+                          </div>
+                          <div class="mb-3">
+                            <%= form.label :printer_id, { class: "form-label"}  %>
+                            <%= form.text_field :printer_id, { class: "form-control", placeholder: "agregue nombres completos..." }  %>
+                          </div>
+                          <div class="actions">
+                            <%= form.submit value="Guardar", class: "btn btn-success btn" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </section>

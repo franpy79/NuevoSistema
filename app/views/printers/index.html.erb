@@ -3,37 +3,41 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Impresoras
-          <%= link_to 'New Printer', new_printer_path, class: "btn btn-secondary btn" %></h1>
+          <h1 class="m-0 text-dark">IMPRESORAS</h1>
         </div>
-<p id="notice"><%= notice %></p>
-<section>
+        <p id="notice"><%= notice %></p>
+        <section>
           <div class="card">
             <div class="card-body">
+              <p align="right", class="m-0 text-white"><%= link_to 'Agregar +', new_printer_path, class: "btn btn-success btn-sm" %></p>
               <div class="table-responsive">
                 <table class="table table-striped">
                   <thead>
-    <tr>
-      <th>Labelled</th>
-      <th>Mark</th>
-      <th>Conect</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @printers.each do |printer| %>
-      <tr>
-        <td><%= printer.labelled %></td>
-        <td><%= printer.mark %></td>
-        <td><%= printer.conect %></td>
-        <td><%= link_to 'Show', printer, class: "btn btn-outline-success btn-sm"  %></td>
-        <td><%= link_to 'Edit', edit_printer_path(printer), class: "btn btn-outline-primary btn-sm"  %></td>
-        <td><%= link_to 'Destroy', printer, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm"  %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-</section>
-
+                    <tr>
+                      <th scope="col">Rotulado</th>
+                      <th scope="col">Marca</th>
+                      <th scope="col">Conexion</th>
+                      <th scope="col">Opción</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @printers.each do |printer| %>
+                      <tr>
+                        <td><%= printer.labelled %></td>
+                        <td><%= printer.mark %></td>
+                        <td><%= printer.conect %></td>
+                        <td><%= link_to 'Ver', printer, class: "btn btn-outline-success btn-sm"  %></td>
+                        <td><%= link_to 'Editar', edit_printer_path(printer), class: "btn btn-outline-primary btn-sm"  %></td>
+                        <td><%= link_to 'Eliminar', printer, method: :delete, data: { confirm: 'Estas Seguro?..' }, class: "btn btn-outline-danger btn-sm"  %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

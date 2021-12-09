@@ -6,26 +6,22 @@
           <h1 class="m-0 text-dark">Lista de Departamentos</h1>
         </div>
         <section>
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Labelled:</strong>
-  <%= @printer.labelled %>
-</p>
-
-<p>
-  <strong>Mark:</strong>
-  <%= @printer.mark %>
-</p>
-
-<p>
-  <strong>Conect:</strong>
-  <%= @printer.conect %>
-</p>
-
-<%= link_to 'Edit', edit_printer_path(@printer) %> |
-<%= link_to 'Back', printers_path %>
-</section>
+          <p id="notice"><%= notice %></p>
+          <p>
+            <strong>Labelled:</strong>
+            <%= @printer.labelled %>
+          </p>
+          <p>
+            <strong>Mark:</strong>
+            <%= @printer.mark %>
+          </p>
+          <p>
+            <strong>Conect:</strong>
+            <%= @printer.conect %>
+          </p>
+          <%= link_to 'Editar', edit_printer_path(@printer) %> |
+          <%= link_to 'Atras', printers_path %>
+        </section>
       </div>
     </div>
   </div>

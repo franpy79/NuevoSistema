@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_08_225727) do
+ActiveRecord::Schema.define(version: 2021_12_09_002529) do
 
   create_table "departaments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(version: 2021_12_08_225727) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "listados", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "departament_id", null: false
+    t.bigint "employee_id"
+    t.bigint "equipment_id", null: false
+    t.bigint "printer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["departament_id"], name: "index_listados_on_departament_id"
+    t.index ["employee_id"], name: "index_listados_on_employee_id"
+    t.index ["equipment_id"], name: "index_listados_on_equipment_id"
+    t.index ["printer_id"], name: "index_listados_on_printer_id"
+  end
+
   create_table "printers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "labelled"
     t.string "mark"
@@ -48,4 +61,7 @@ ActiveRecord::Schema.define(version: 2021_12_08_225727) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "listados", "departaments"
+  add_foreign_key "listados", "equipment"
+  add_foreign_key "listados", "printers"
 end
